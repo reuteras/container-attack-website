@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update --fix-missing && \
     apt-get install -qqy --no-install-recommends \
-    locales nano git pelican apt-transport-https ca-certificates python3-pip python3-setuptools && \
+    locales git pelican apt-transport-https ca-certificates python3-pip python3-setuptools && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen && \
     update-ca-certificates && \
@@ -17,6 +17,7 @@ RUN apt-get update --fix-missing && \
     sed -i -E "s/1000:/3000:/" modules/sizechecker.py && \
     python3 -m pip install -r requirements.txt && \
     cd /home/attackuser/attack-website && \
+    rm -rf /var/lib/apt/lists/* && \
     python3 update-attack.py -c -b
 
 WORKDIR /home/attackuser/attack-website/output
