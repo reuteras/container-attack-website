@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update --fix-missing && \
     apt-get install -qqy --no-install-recommends \
-    locales nano sudo git pelican apt-transport-https ca-certificates python3-pip python3-setuptools && \
+    locales nano git pelican apt-transport-https ca-certificates python3-pip python3-setuptools && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen && \
     update-ca-certificates && \
