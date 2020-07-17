@@ -19,7 +19,7 @@ RUN apt-get update --fix-missing && \
     python3 -m pip install -r requirements.txt && \
     cd /home/attackuser/attack-website && \
     python3 update-attack.py -c -b && \
-    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/attackuser/attack-website/output
 CMD ["python3", "-m", "pelican.server", "80"]
