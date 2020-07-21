@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:buster-slim
 LABEL maintainer="code@ongoing.today"
 
 ENV DEBIAN_FRONTEND noninteractive
