@@ -15,10 +15,9 @@ RUN apt-get update --fix-missing && \
     git clone --depth=1 --no-tags https://github.com/mitre-attack/attack-website.git && \
     cd /home/attackuser/attack-website && \
     rm -rf .git* && \
-    sed -i -E "s/1000:/3000:/" modules/sizechecker.py && \
     python3 -m pip install -r requirements.txt && \
     cd /home/attackuser/attack-website && \
-    python3 update-attack.py -c -b && \
+    python3 update-attack.py --no-test-exitstatus && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/attackuser/attack-website/output
